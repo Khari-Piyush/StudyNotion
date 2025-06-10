@@ -1,0 +1,32 @@
+/* write your css here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    overflow-x: hidden;
+}
+
+.homepage_bg {
+    background: url("../src/assets/Images/bghome.svg");
+}
+
+.shadow-white{
+    box-shadow: -20px -20px 0px 0px;
+}
+.form-style {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+    --tw-shadow: 0 1px 0 0;
+    --tw-shadow-colored: 0 1px 0 0 var(--tw-shadow-color);
+    --tw-shadow-color: hsla(0, 0%, 100%, .5);
+    --tw-shadow: var(--tw-shadow-colored);
+    background-color: rgb(44 51 63 / var(--tw-bg-opacity));
+    border-radius: .5rem;
+    box-shadow: 0 0 #0000, 0 0 #0000, var(--tw-shadow);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    color: rgb(241 242 255 / var(--tw-text-opacity));
+    font-size: 16px;
+    line-height: 24px;
+    padding: .75rem;
+}
