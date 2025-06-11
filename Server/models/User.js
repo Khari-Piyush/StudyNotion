@@ -68,6 +68,24 @@ const userSchema = new mongoose.Schema(
 				ref: "courseProgress",
 			},
 		],
+		gender:[
+			{
+				type:mongoose.Schema.Types.ObjectId,
+				ref:"Profile"
+			}
+		],
+		contactNumber:[
+			{
+				type:mongoose.Schema.Types.ObjectId,
+				ref:"Profile"
+			}
+		],
+		dateOfBirth:[
+			{
+				type:mongoose.Schema.Types.ObjectId,
+				ref:"Profile"
+			}
+		]
 
 		// Add timestamps for when the document is created and last modified
 	},
