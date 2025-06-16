@@ -13,6 +13,7 @@ import MyProfile from "./pages/MyProfile";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Error from "../src/pages/Error"
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -71,7 +72,7 @@ function App() {
           }
         />
 
-        {/* <Route path="/contact" element={<Contact/>} /> */}
+        <Route path="/contact" element={<Contact/>} />
         <Route
         element={
           <PrivateRoute>

@@ -12,7 +12,8 @@ const IconBtn = ({
     <button
     disabled={disabled}
     onClick={onclick}
-    type={type}>
+    type={type}
+    className='  pl-2 pr-2 pt-1 pb-1 hover:scale-95 transition-all duration-200 text-richblack-900 font-bold'>
         {
             children ? (
                 <>
