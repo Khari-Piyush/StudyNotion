@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import IconBtn from '../components/common/IconBtn'
+import IconBtn from '../../common/IconBtn'
 import { FaEdit } from "react-icons/fa";
 
 const MyProfile = () => {
