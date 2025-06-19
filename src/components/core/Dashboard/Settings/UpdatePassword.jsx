@@ -36,7 +36,7 @@ export default function UpdatePassword() {
           <h2 className="text-lg font-semibold text-richblack-5">Password</h2>
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="oldPassword" className="lable-style">
+              <label htmlFor="oldPassword" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 Current Password
               </label>
               <input
@@ -49,7 +49,7 @@ export default function UpdatePassword() {
               />
               <span
                 onClick={() => setShowOldPassword((prev) => !prev)}
-                className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                className="absolute right-3 top-[48px] z-[10] cursor-pointer"
               >
                 {showOldPassword ? (
                   <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -64,7 +64,7 @@ export default function UpdatePassword() {
               )}
             </div>
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="newPassword" className="lable-style">
+              <label htmlFor="newPassword" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 New Password
               </label>
               <input
@@ -77,7 +77,7 @@ export default function UpdatePassword() {
               />
               <span
                 onClick={() => setShowNewPassword((prev) => !prev)}
-                className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                className="absolute right-3 top-[48px] z-[10] cursor-pointer"
               >
                 {showNewPassword ? (
                   <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -98,11 +98,11 @@ export default function UpdatePassword() {
             onClick={() => {
               navigate("/dashboard/my-profile")
             }}
-            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50"
+            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50 hover:scale-95 transition-all duration-200"
           >
             Cancel
           </button>
-          <IconBtn type="submit" text="Update" />
+          <IconBtn type="submit" text="Update" classname="flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2 pr-2" />
         </div>
       </form>
     </>

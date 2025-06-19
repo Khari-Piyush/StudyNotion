@@ -1,126 +1,123 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import IconBtn from '../../common/IconBtn'
-import { FaEdit } from "react-icons/fa";
+import { RiEditBoxLine } from "react-icons/ri"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
-const MyProfile = () => {
-    const {user} = useSelector( (state) => state.profile )
-    const navigate = useNavigate();
+import { formattedDate } from "../../../utils/dateFormatter"
+import IconBtn from "../../common/IconBtn"
+
+export default function MyProfile() {
+  const { user } = useSelector((state) => state.profile)
+  const navigate = useNavigate()
 
   return (
-    <div className='text-white flex flex-col absolute left-[20%] w-6/12'>
-
-        <h1 className='text-white text-4xl font-semibold pl-5 pb-5'>
-            My Profile
-        </h1>
-
-        {/* Section - 1*/}
-        <div className=' flex items-center bg-richblack-700 mt-5 mb-5 p-5 pl-7 pr-7 rounded-xl justify-between '>
-            <div className='flex items-center justify-between gap-5'>
-                <img 
-                src={user?.image}
-                alt={`profile-${user?.firstName}`}
-                className='aspect-square w-[78px] rounded-full object-cover'/>
-
-                <div className='flex flex-col'>
-                    <p className='text-richblack-5 text-lg'>{user?.firstName + " " + user?.lastName}</p>
-                    <p className='text-richblack-300 text-sm'>{user?.email}</p>
-                </div>
-            </div>
-
-            <div className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2'>
-                    <FaEdit
-                        className='text-richblack-900' 
-                    />
-                    <IconBtn
-                        text="Edit"
-                        onclick={ () => {
-                        navigate("dashboard/settings")
-                    }}/>
-            </div>
-
-                
+    <>
+      <h1 className="mb-14 text-3xl font-medium text-richblack-5">
+        My Profile
+      </h1>
+      <div className="flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+        <div className="flex items-center gap-x-4">
+          <img
+            src={user?.image}
+            alt={`profile-${user?.firstName}`}
+            className="aspect-square w-[78px] rounded-full object-cover"
+          />
+          <div className="space-y-1">
+            <p className="text-lg font-semibold text-richblack-5">
+              {user?.firstName + " " + user?.lastName}
+            </p>
+            <p className="text-sm text-richblack-300">{user?.email}</p>
+          </div>
         </div>
-
-        {/* Section - 2 */}
-        <div className=' flex flex-col bg-richblack-700 p-5 pl-7 pr-7 rounded-xl relative'>
-            <div className='flex justify-between items-center w-full '>
-                <p className='text-lg font-semibold '>About</p>
-                <div className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2'>
-                    <FaEdit
-                        className='text-richblack-900' 
-                    />
-                    <IconBtn
-                        text="Edit"
-                        onclick={ () => {
-                        navigate("dashboard/settings")
-                    }}/>
-                </div>
-            </div>
-
-            {/* user?.additonalDetails?.about */}
-            <p className='text-richblack-100 '>{user?.additionalDetails?.about ?? "Write something about yourself"}</p>
+        <div className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2 pr-2'>
+            <IconBtn
+            text="Edit"
+            onclick={() => {
+              navigate("/dashboard/settings")
+            }}/>
+            <RiEditBoxLine />
+          </div>
+      </div>
+      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+        <div className="flex w-full items-center justify-between">
+          <p className="text-lg font-semibold text-richblack-5">About</p>
+          <div className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2 pr-2'>
+            <IconBtn
+            text="Edit"
+            onclick={() => {
+              navigate("/dashboard/settings")
+            }}/>
+            <RiEditBoxLine />
+          </div>
         </div>
-
-        {/* Section-3 */}
-        <div className=' flex flex-col bg-richblack-700 p-5 pl-7 pr-7 rounded-xl relative mt-5 gap-y-5 '>
-            <div className='flex justify-between items-center w-full'>
-                <p className='text-lg font-semibold '>Personal Details</p>
-                <div className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2'>
-                    <FaEdit
-                        className='text-richblack-900' 
-                    />
-                    <IconBtn
-                        text="Edit"
-                        onclick={ () => {
-                        navigate("dashboard/settings")
-                    }}/>
-                </div>
-            </div>
-
-            <div className='flex flex-col gap-4'>
-                {/* Name Div */}
-                <div className='flex items-center gap-x-72'>
-                    <div className='flex flex-col'>
-                        <p className='text-richblack-200'>First Name</p>
-                        <p className='text-richblack-5'>{user?.firstName}</p>
-                    </div>
-                    <div>
-                        <p className='text-richblack-200'>Last Name</p>
-                        <p>{user?.lastName}</p>
-                    </div>
-                </div>
-                
-                {/* Email and phone div */}
-                <div className='flex gap-x-[138px]'>
-                    <div>
-                        <p className='text-richblack-200'>Email</p>
-                        <p>{user?.email}</p>
-                    </div>
-                    <div>
-                        <p className='text-richblack-200'>Phone Number</p>
-                        <p>{user?.additionalDetails?.contactNumber ?? "Add contact number"}</p>
-                    </div>
-                </div>
-
-                {/* Gender and DOB */}
-                <div className=' flex gap-x-[310px]'>
-                    <div>
-                        <p className='text-richblack-200'>Gender</p>
-                        <p>{user?.additionalDetails?.gender ?? "Add gender"}</p>
-                    </div>
-                    
-                    <div>
-                        <p className='text-richblack-200'>Date of Birth</p>
-                        <p>{user?.additionalDetails?.dateOfBirth ?? "Add Date of Birth"}</p>
-                    </div>
-                </div>
-            </div>
-
+        <p
+          className={`${
+            user?.additionalDetails?.about
+              ? "text-richblack-5"
+              : "text-richblack-400"
+          } text-sm font-medium`}
+        >
+          {user?.additionalDetails?.about ?? "Write Something About Yourself"}
+        </p>
+      </div>
+      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+        <div className="flex w-full items-center justify-between">
+          <p className="text-lg font-semibold text-richblack-5">
+            Personal Details
+          </p>
+          <div className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2 pr-2'>
+            <IconBtn
+            text="Edit"
+            onclick={() => {
+              navigate("/dashboard/settings")
+            }}/>
+            <RiEditBoxLine />
+          </div>
+          
         </div>
-    </div>
+        <div className="flex max-w-[500px] justify-between">
+          <div className="flex flex-col gap-y-5">
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">First Name</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.firstName}
+              </p>
+            </div>
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">Email</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.email}
+              </p>
+            </div>
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">Gender</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.additionalDetails?.gender ?? "Add Gender"}
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-5">
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">Last Name</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.lastName}
+              </p>
+            </div>
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
+              </p>
+            </div>
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {formattedDate(user?.additionalDetails?.dateOfBirth) ??
+                  "Add Date Of Birth"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
-
-export default MyProfile

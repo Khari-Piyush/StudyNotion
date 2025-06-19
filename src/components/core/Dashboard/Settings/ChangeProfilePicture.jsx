@@ -79,18 +79,22 @@ export default function ChangeProfilePicture() {
               <button
                 onClick={handleClick}
                 disabled={loading}
-                className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50"
+                className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50 hover:scale-95 transition-all duration-200"
               >
                 Select
               </button>
-              <IconBtn
-                text={loading ? "Uploading..." : "Upload"}
-                onclick={handleFileUpload}
-              >
-                {!loading && (
-                  <FiUpload className="text-lg text-richblack-900" />
-                )}
-              </IconBtn>
+              <div className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2 pr-2'>
+                <IconBtn
+                  text={loading ? "Uploading..." : "Upload"}
+                  onclick={handleFileUpload}
+                  classname="flex gap-2 items-center justify-center"
+                >
+                  {!loading && (
+                    <FiUpload className="text-lg text-richblack-900" />
+                  )}
+                </IconBtn>
+              </div>
+              
             </div>
           </div>
         </div>

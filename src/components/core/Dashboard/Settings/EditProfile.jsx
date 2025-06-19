@@ -37,7 +37,7 @@ export default function EditProfile() {
           </h2>
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="firstName" className="lable-style">
+              <label htmlFor="firstName" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 First Name
               </label>
               <input
@@ -56,7 +56,7 @@ export default function EditProfile() {
               )}
             </div>
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="lastName" className="lable-style">
+              <label htmlFor="lastName" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 Last Name
               </label>
               <input
@@ -78,7 +78,7 @@ export default function EditProfile() {
 
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="dateOfBirth" className="lable-style">
+              <label htmlFor="dateOfBirth" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 Date of Birth
               </label>
               <input
@@ -105,7 +105,7 @@ export default function EditProfile() {
               )}
             </div>
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="gender" className="lable-style">
+              <label htmlFor="gender" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 Gender
               </label>
               <select
@@ -134,7 +134,7 @@ export default function EditProfile() {
 
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="contactNumber" className="lable-style">
+              <label htmlFor="contactNumber" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 Contact Number
               </label>
               <input
@@ -160,7 +160,7 @@ export default function EditProfile() {
               )}
             </div>
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="about" className="lable-style">
+              <label htmlFor="about" className="lable-style mb-2 text-sm text-richblack-600 font-bold">
                 About
               </label>
               <input
@@ -186,11 +186,11 @@ export default function EditProfile() {
             onClick={() => {
               navigate("/dashboard/my-profile")
             }}
-            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50"
+            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50 hover:scale-95 transition-all duration-200"
           >
             Cancel
           </button>
-          <IconBtn type="submit" text="Save" />
+          <IconBtn type="submit" text="Save" classname="className='flex bg-yellow-100 p-1 rounded-lg items-center justify-center pl-2 pr-2'" />
         </div>
       </form>
     </>
