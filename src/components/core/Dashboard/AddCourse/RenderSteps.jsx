@@ -2,6 +2,7 @@ import React from 'react'
 import { FaCheck } from 'react-icons/fa';
 import { useSelector } from 'react-redux'
 import CourseInformationForm from './CourseInformation/CourseInformationForm';
+import CourseBuilderForm from './CourseBuilder/CourseBuilderForm';
 
 const RenderSteps = () => {
     const {step} =  useSelector( (state) => state.course);
@@ -21,13 +22,13 @@ const RenderSteps = () => {
     ]
   return (
     <>
-    <div>
+    <div className='flex items-center justify-around'>
         {steps.map( (item) => (
             <>
-                <div>
+                <div className='flex items-center justify-center'>
                     <div 
-                        className={`${step === item.id 
-                        ? "bg-yellow-900 border-yellow-5 text-yellow-50" 
+                        className={`flex  items-center  justify-center rounded-full h-10 w-10 text-lg ${step === item.id 
+                        ? "bg-yellow-900 border-yellow-5 border-[1px] text-yellow-50" 
                         : "border-richblack-700 bg-richblack-800 text-richblack-300"}
                     `}>
                         {
@@ -40,12 +41,12 @@ const RenderSteps = () => {
         ) )}
     </div>
 
-    <div>
+    <div className='flex items-center justify-around'>
         {
             steps.map ((item)=> (
                 <>
-                    <div>
-                        <p>{item.title}</p>
+                    <div className=''>
+                        <p className='text-sm'>{item.title}</p>
                     </div>
                 
                 </>
@@ -55,10 +56,10 @@ const RenderSteps = () => {
     {
         step === 1 && <CourseInformationForm/>
     }
-    {/* {
+    {
         step === 2 && <CourseBuilderForm/>
     }
-    {
+    {/* {
         step === 3 && <PublishCourse/>
     } */}
     </>

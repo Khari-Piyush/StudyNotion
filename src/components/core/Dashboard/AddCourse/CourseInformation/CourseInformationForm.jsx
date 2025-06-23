@@ -146,12 +146,15 @@ const CourseInformationForm = () => {
     className='rounded-md border-richblack-700 bg-richblack-800 p-6 space-y-8'
     >
         <div>
-            <label  htmlFor='courseTitle'>Course Title<sup>*</sup></label>
+            <label  htmlFor='courseTitle'>Course Title<sup className='text-pink-200 text-sm'>*</sup></label>
             <input
                 id='courseTitle'
                 placeholder='Enter Course Title'
                 {...register("courseTitle", {required:true})}
-                className='w-full'
+                style={{
+                            boxShadow: "inset 0px -1px 0px rgba(255,255,255, 0.18)",
+                        }}
+                className="form-style w-full"
             />
             {
                 errors.courseTitle && (
@@ -161,12 +164,15 @@ const CourseInformationForm = () => {
         </div>
 
         <div>
-            <label  htmlFor='courseShortDesc'>Course Short Description<sup>*</sup></label>
+            <label  htmlFor='courseShortDesc'>Course Short Description<sup className='text-pink-200 text-sm'>*</sup></label>
             <textarea
                 id='courseShortDesc'
                 placeholder='Enter Description'
                 {...register("courseShortDesc", {required:true})}
-                className='min-h-[140px] w-full'
+                style={{
+                            boxShadow: "inset 0px -1px 0px rgba(255,255,255, 0.18)",
+                        }}
+                className="form-style w-full min-h-[140px]"
                 />
             {
                 errors.courseShortDesc && (<span>
@@ -175,8 +181,8 @@ const CourseInformationForm = () => {
             }
         </div>
 
-        <div className='relative'>
-            <label htmlFor='coursePrice'>Course Price<sup>*</sup></label>
+        <div className='relative '>
+            <label htmlFor='coursePrice'>Course Price<sup className='text-pink-200 text-sm'>*</sup></label>
             <input
                 id='coursePrice'
                 placeholder='Enter Course Price'
@@ -184,9 +190,12 @@ const CourseInformationForm = () => {
                     required:true,
                     valueAsNumber:true
                 })}
-                className='w-full'
+                style={{
+                            boxShadow: "inset 0px -1px 0px rgba(255,255,255, 0.18)",
+                        }}
+                className="pl-9 form-style w-full"
             />
-            <HiOutlineCurrencyRupee  className='absolute top-1/2 text-richblack-400'/>
+            <HiOutlineCurrencyRupee  className='absolute top-[52%] text-richblack-400 text-xl ml-3'/>
             {
                 errors.coursePrice && (
                     <span>Course Price is Required**</span>
@@ -195,11 +204,15 @@ const CourseInformationForm = () => {
         </div>
 
         <div>
-            <label htmlFor='courseCategory'>Course Category<sup>*</sup></label>
+            <label htmlFor='courseCategory'>Course Category<sup className='text-pink-200 text-sm'>*</sup></label>
             <select
             id='courseCategory'
             defaultValue=""
             {...register("courseCategory", {required:true})}
+            style={{
+                            boxShadow: "inset 0px -1px 0px rgba(255,255,255, 0.18)",
+                        }}
+                className="form-style w-full"
             >
                 <option value="" disabled>Choose a Category</option>
 
@@ -241,12 +254,15 @@ const CourseInformationForm = () => {
         
         {/*     Benefits of the Course */}
         <div>
-            <label>Benefits of the course<sup>*</sup></label>
+            <label>Benefits of the course<sup className='text-pink-200 text-sm'>*</sup></label>
             <textarea
             id='coursebenefits'
             placeholder='Enter Benefits of the course'
             {...register("courseBenefits", {required:true})}
-            className='min-h-[130px] w-full'
+            style={{
+                            boxShadow: "inset 0px -1px 0px rgba(255,255,255, 0.18)",
+                        }}
+                className="form-style w-full min-h-[130px]"
             />
             {errors.courseBenefits && (
                 <span>
@@ -277,6 +293,7 @@ const CourseInformationForm = () => {
 
             <IconBtn
                 text={!editCourse ? "Next" : "Save Changes"}
+                classname="bg-yellow-100 rounded-lg"
                 />
         </div>
     </form>

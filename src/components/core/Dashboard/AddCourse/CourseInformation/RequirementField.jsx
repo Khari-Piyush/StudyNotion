@@ -31,19 +31,22 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
     
   return (
     <div >
-        <label htmlFor={name}>{label}<sup>*</sup></label>
-        <div>
+        <label htmlFor={name}>{label}<sup className='text-pink-200 text-sm'>*</sup></label>
+        <div className='flex flex-col justify-center items-start gap-2'>
             <input
                 type='text'
                 id={name}
                 value={requirement}
                 onChange={ (e) => setRequirement(e.target.value)}
-                className='w-full text-richblack-900'
+                style={{
+                            boxShadow: "inset 0px -1px 0px rgba(255,255,255, 0.18)",
+                        }}
+                className="form-style w-full"
             />
             <button
             type='button'
             onClick={handleAddRequirement}
-            className='font-semibold text-yellow-50'>
+            className='pl-2 pr-2 pt-1 pb-1 hover:scale-95 transition-all duration-200 text-yellow-50 font-bold'>
                 ADD
             </button>
         </div>
@@ -52,13 +55,13 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
                 <ul>
                     {
                         requirementList.map((requirement, index) => (
-                            <li key={index} className='flex items-center text-richblack-5'>
+                            <li key={index} className='flex items-center pl-2 text-richblack-5 gap-5 text-sm'>
                                 <span>{requirement}</span>
                                 <button
                                 type='button'
                                 onClick={()=> handleRemoveRequirement(index)}
-                                className='text-xs text-pure-greys-300'>
-                                    clear
+                                className='text-xs text-pure-greys-300 hover:text-richblack-25'>
+                                    Clear
                                 </button>
                             </li>
                         ))
